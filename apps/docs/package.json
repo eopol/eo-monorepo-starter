@@ -1,0 +1,33 @@
+{
+  "name": "@eoms/docs",
+  "version": "0.0.0",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "next dev -p 9001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint --fix",
+    "clean": "run-p clean:**",
+    "clean:cache": "rimraf .turbo && rimraf dist && rimraf .next",
+    "clean:deps": "rimraf node_modules"
+  },
+  "dependencies": {
+    "@eoms/ui": "workspace:*",
+    "next": "12.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@eoms/eslint-config": "workspace:*",
+    "@eoms/ts-config": "workspace:*",
+    "@types/node": "18.7.18",
+    "@types/react": "^18.0.20",
+    "@types/react-dom": "^18.0.6",
+    "eslint": "8.23.1",
+    "eslint-config-next": "^12.3.0",
+    "typescript": "4.8.3"
+  }
+}

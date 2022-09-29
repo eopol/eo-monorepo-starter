@@ -1,0 +1,17 @@
+{
+  "name": "@eoms/cli",
+  "version": "0.0.0",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js",
+  "scripts": {
+    "clean": "run-p clean:**",
+    "clean:cache": "rimraf .turbo && rimraf dist",
+    "clean:deps": "rimraf node_modules"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

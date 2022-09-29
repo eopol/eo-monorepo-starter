@@ -1,0 +1,34 @@
+{
+  "name": "@eoms/constant",
+  "version": "0.0.0",
+  "private": true,
+  "license": "ISC",
+  "sideEffects": false,
+  "main": "./index.ts",
+  "publishConfig": {
+    "main": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": "./*"
+  },
+  "scripts": {
+    "dev": "tsup ./index.ts --format esm,cjs --dts --watch",
+    "build": "tsup ./index.ts --format esm,cjs --dts",
+    "lint": "TIMING=1 eslint ./**/*.ts* --fix",
+    "clean": "run-p clean:**",
+    "clean:cache": "rimraf .turbo && rimraf dist",
+    "clean:deps": "rimraf node_modules"
+  },
+  "devDependencies": {
+    "@eoms/ts-config": "workspace:*",
+    "tsup": "^6.2.3"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

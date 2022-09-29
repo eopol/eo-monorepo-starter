@@ -1,0 +1,41 @@
+{
+  "name": "@eoms/workspace",
+  "version": "0.0.0",
+  "private": true,
+  "license": "ISC",
+  "sideEffects": false,
+  "main": "./index.ts",
+  "publishConfig": {
+    "main": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": "./*"
+  },
+  "scripts": {
+    "dev": "tsup ./index.ts --format esm,cjs --dts --watch",
+    "build": "tsup ./index.ts --format esm,cjs --dts",
+    "lint": "TIMING=1 eslint ./**/*.ts* --fix",
+    "clean": "run-p clean:**",
+    "clean:cache": "rimraf .turbo && rimraf dist",
+    "clean:deps": "rimraf node_modules"
+  },
+  "dependencies": {
+    "@eoms/constant": "workspace:*",
+    "@pnpm/find-workspace-dir": "^4.0.2",
+    "@pnpm/find-workspace-packages": "^4.0.39",
+    "@pnpm/logger": "^4.0.0",
+    "@yarnpkg/core": "^4.0.0-rc.14"
+  },
+  "devDependencies": {
+    "@eoms/ts-config": "workspace:*",
+    "tsup": "^6.2.3"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

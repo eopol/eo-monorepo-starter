@@ -1,0 +1,18 @@
+{
+  "name": "@eoms/stylelint-config",
+  "version": "0.0.0",
+  "private": true,
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "clean": "run-p clean:**",
+    "clean:cache": "rimraf .turbo && rimraf dist",
+    "clean:deps": "rimraf node_modules"
+  },
+  "devDependencies": {
+    "stylelint": "^14.11.0"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

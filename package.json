@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "turbo run dev --parallel --continue",
+    "dev:admin": "pnpm -- turbo run dev --filter=admin",
+    "dev:cli": "pnpm -- turbo run dev --filter=cli",
+    "dev:docs": "pnpm -- turbo run dev --filter=docs",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "clean": "run-s clean:**",
+    "clean:workspace": "turbo run clean",
+    "clean:cache": "turbo run clean:cache",
+    "clean:root-cache": "rimraf .turbo && rimraf pnpm-lock.yaml",
+    "clean:root-deps": "rimraf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "changeset": "changeset",
+    "preversion": "echo \"Error: use @changsets/cli to version packages\" && exit 1",
+    "preversion-packages": "turbo run preversion",
+    "version-packages": "pnpm run preversion-packages && changeset version",
+    "release": "turbo run build --filter=docs^... && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.24.4",
+    "@eoms/eslint-config": "workspace:*",
+    "@eoms/stylelint-config": "workspace:*",
+    "@types/node": "18.7.18",
+    "eslint": "^8.23.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "stylelint": "^14.11.0",
+    "turbo": "^1.4.7",
+    "typescript": "^4.8.3"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

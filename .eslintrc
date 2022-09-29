@@ -1,0 +1,9 @@
+{
+  "root": true,
+  "extends": ["@eoms/eslint-config"],
+  "settings": {
+    "next": {
+      "rootDir": "apps/docs"
+    }
+  }
+}
