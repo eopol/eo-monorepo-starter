@@ -1,8 +1,5 @@
 {
-  "extends": "@eoms/ts-config/react.json",
-  "compilerOptions": {
-    "resolveJsonModule": true
-  },
+  "extends": "@eoms/ts-config/react.vite.json",
   "include": ["src", "index.ts"],
   "exclude": ["dist", "node_modules", ".turbo"]
 }

@@ -1,0 +1,10 @@
+{
+  "display": "TSConfig Node16 MJS",
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
+  }
+}

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "TSConfig Node16",
+  "display": "TSConfig Node16 CJS",
   "extends": "./base.json",
   "compilerOptions": {
     "lib": ["ES2020"],
