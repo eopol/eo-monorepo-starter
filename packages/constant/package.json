@@ -18,7 +18,7 @@
   },
   "scripts": {
     "dev": "tsup ./index.ts --format esm,cjs --dts --watch",
-    "build": "tsup ./index.ts --format esm,cjs --dts",
+    "build": "rimraf dist && tsup ./index.ts --format esm,cjs --dts",
     "lint": "TIMING=1 eslint ./**/*.ts* --fix",
     "clean": "run-p clean:**",
     "clean:cache": "rimraf .turbo && rimraf dist",

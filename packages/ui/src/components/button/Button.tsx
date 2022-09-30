@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { PREFIX } from '../../constant'
+import { UI_COMPONENT_PREFIX as PREFIX } from '@eoms/constant'
 import type { ButtonProps } from './types'
 
 const Button: React.FC<ButtonProps> = ({
@@ -11,7 +11,7 @@ const Button: React.FC<ButtonProps> = ({
   const createPostIcon = () => (postIcon ? <span>{postIcon}</span> : null)
 
   return (
-    <button>
+    <button className={`${PREFIX}-button`}>
       {createPrevIcon()}
       {children}
       {createPostIcon()}

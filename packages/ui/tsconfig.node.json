@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["./vite.config.build-cjs.ts", "./vite.config.build-es.ts", "./vite.config.build-umd.ts", "./vite.config.build-style.ts", "scripts"]
+}

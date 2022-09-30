@@ -1,8 +1,0 @@
-{
-  "extends": "@eoms/ts-config/node16.json",
-  "compilerOptions": {
-    "resolveJsonModule": true
-  },
-  "include": ["src", "index.ts"],
-  "exclude": ["dist", "node_modules", ".turbo"]
-}

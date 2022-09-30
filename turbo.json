@@ -9,24 +9,47 @@
         "^build"
       ]
     },
+    "build:docs": {
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ],
+      "dependsOn": ["build:ui"]
+    },
+    "build:ui": {
+      "outputs": [
+        "dist/**"
+      ],
+      "dependsOn": ["build:constant"]
+    },
+    "build:constant": {
+      "outputs": [
+        "dist/**"
+      ]
+    },
+
     "test": {
       "outputs": [
         "coverage/**"
       ],
       "dependsOn": []
     },
+
     "lint": {
       "outputs": []
     },
+
     "dev": {
       "cache": false
     },
+
     "clean": {
       "cache": false
     },
     "clean:cache": {
       "cache": false
     },
+
     "preversion": {
       "cache": false
     }

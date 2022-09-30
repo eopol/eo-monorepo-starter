@@ -1,0 +1,6 @@
+@import '../constant/index.scss';
+@import '../mixins/index.scss';
+
+@include b(button) {
+  background-color: red;
+}
