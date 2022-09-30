@@ -37,11 +37,3 @@ Typescript config required by this monorepo project
 ### @eoms/ui
 
 UI library
-
-### @eoms/vite-config
-
-Vite config required by this monorepo project
-
-### @eoms/workspace
-
-Pnpm workspace utils required by this monorepo project
