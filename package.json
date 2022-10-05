@@ -52,7 +52,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "pnpm lint"
+    "**/*.{ts,tsx}": "eslint --fix"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged",
