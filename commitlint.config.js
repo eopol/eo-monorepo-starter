@@ -17,9 +17,9 @@ const scopeComplete = gitStatus
   ?.match(/packages%%((\w|-)*)/)?.[1]
 
 const subjectComplete = gitStatus
-  .find((r) => ~r.indexOf('M  packages/components'))
+  .find((r) => ~r.indexOf('M  packages/ui'))
   ?.replace(/\//g, '%%')
-  ?.match(/packages%%components%%((\w|-)*)/)?.[1]
+  ?.match(/packages%%ui%%((\w|-)*)/)?.[1]
 
 module.exports = { 
   extends: ['@commitlint/config-conventional'],
