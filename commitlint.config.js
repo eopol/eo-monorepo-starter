@@ -23,4 +23,9 @@ module.exports = {
      'type-case': [2, 'always', 'lower-case'],
      'type-empty': [2, 'never'],
   },
+  prompt: { 
+    scopes: [...scopes],
+    enableMultipleScopes: true,
+    scopeEnumSeparator: "," 
+  }
 }
