@@ -1,4 +1,4 @@
-export const PKG_PREFIX = '@eoms'
+export const PKG_PREFIX = '@eo-ms'
 export const PKG_NAME = 'eoms'
 export const PKG_CAMELCASE_NAME = 'EOMS'
 export const PKG_CAMELCASE_LOCAL_NAME = 'EOMSLocale'

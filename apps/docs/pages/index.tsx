@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@eoms/ui'
+import { Button } from '@eo-ms/ui'
 import type { NextPage } from 'next'
 import styles from '../styles/Home.module.css'
 
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
         <div className={styles.grid}>
           <Link href="/admin" className={styles.card}>
             <div className={styles.card}>
-              <Button postIcon='&rarr;'>
+              <Button postIcon="&rarr;">
                 <h2>Admin</h2>
               </Button>
               <p>Find in-depth information about Next.js features and API.</p>
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
 
           <Link href="/cli" className={styles.card}>
             <div className={styles.card}>
-              <Button postIcon='&rarr;'>
+              <Button postIcon="&rarr;">
                 <h2>Cli</h2>
               </Button>
               <p>Learn about Next.js in an interactive course with quizzes!</p>
@@ -45,7 +45,7 @@ const Home: NextPage = () => {
 
           <Link href="/ui" className={styles.card}>
             <div className={styles.card}>
-              <Button prevIcon='&rarr;'>
+              <Button prevIcon="&rarr;">
                 <h2>UI</h2>
               </Button>
               <p>Discover and deploy boilerplate example Next.js projects.</p>

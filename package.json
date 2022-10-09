@@ -2,7 +2,7 @@
   "name": "eo-monorepo-starter",
   "private": true,
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
+    "preinstall": "node ./scripts/preinstall.mjs",
     "postinstall": "pnpm exec simple-git-hooks",
     "dev": "turbo run dev --parallel --continue",
     "dev:admin": "pnpm -- turbo run dev --filter=admin",
@@ -24,32 +24,38 @@
     "commit": "czg",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "pnpm run build && changeset publish --registry=https://registry.npmjs.com/"
+    "release": "pnpm run build && changeset publish --registry=https://registry.npmjs.com/",
+    "changelog:gen": "node scripts/changesets/changelog-generate.js",
+    "changelog:write": "node scripts/changesets/changelog-write.js",
+    "changeset:publish": "node scripts/changesets/generate-releases.js"
   },
   "devDependencies": {
+    "@changesets/assemble-release-plan": "5.2.2",
     "@changesets/changelog-github": "0.4.7",
     "@changesets/cli": "^2.24.4",
+    "@changesets/config": "2.2.0",
+    "@changesets/pre": "1.0.13",
+    "@changesets/read": "0.5.8",
     "@commitlint/cli": "17.1.2",
     "@commitlint/config-conventional": "17.1.0",
-    "@eoms/eslint-config": "workspace:*",
-    "@eoms/stylelint-config": "workspace:*",
+    "@eo-ms/eslint-config": "workspace:*",
+    "@eo-ms/stylelint-config": "workspace:*",
+    "@manypkg/get-packages": "1.1.3",
     "@types/node": "18.7.18",
     "cz-git": "1.3.11",
     "czg": "1.3.11",
     "eslint": "^8.23.1",
+    "inquirer": "9.1.3",
     "lint-staged": "13.0.3",
-    "npm-run-all": "^4.1.5",
+    "npm-run-all": "4.1.5",
+    "octokit": "2.0.7",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
+    "semver": "7.3.8",
     "simple-git-hooks": "2.8.0",
     "stylelint": "^14.11.0",
     "turbo": "^1.4.7",
     "typescript": "^4.8.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-git"
-    }
   },
   "lint-staged": {
     "**/*.{ts,tsx}": "eslint --fix"
@@ -60,5 +66,6 @@
   },
   "engines": {
     "node": ">=16"
-  }
+  },
+  "packageManager": "pnpm@7.13.2"
 }

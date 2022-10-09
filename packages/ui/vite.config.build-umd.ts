@@ -1,6 +1,6 @@
 import { resolve } from 'path'
 import React from '@vitejs/plugin-react'
-import { UI_NAME } from '@eoms/constant'
+import { UI_NAME } from '@eo-ms/constant'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {

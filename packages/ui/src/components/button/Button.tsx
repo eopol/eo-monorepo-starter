@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { UI_COMPONENT_PREFIX as PREFIX } from '@eoms/constant'
+import { UI_COMPONENT_PREFIX as PREFIX } from '@eo-ms/constant'
 import type { ButtonProps } from './types'
 
 const Button: React.FC<ButtonProps> = ({

@@ -1,5 +1,5 @@
 {
-  "name": "@eoms/docs",
+  "name": "@eo-ms/docs",
   "version": "0.0.0",
   "license": "ISC",
   "publishConfig": {
@@ -15,14 +15,14 @@
     "clean:deps": "rimraf node_modules"
   },
   "dependencies": {
-    "@eoms/ui": "workspace:*",
+    "@eo-ms/ui": "workspace:*",
     "next": "12.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@eoms/eslint-config": "workspace:*",
-    "@eoms/ts-config": "workspace:*",
+    "@eo-ms/eslint-config": "workspace:*",
+    "@eo-ms/ts-config": "workspace:*",
     "@types/node": "18.7.18",
     "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",

@@ -1,10 +1,10 @@
 {
-  "extends": "@eoms/ts-config/next.json",
+  "extends": "@eo-ms/ts-config/next.json",
   "compilerOptions": {
     "paths": {
-      "@eoms/*": ["../../packages/*"],
-      "@eoms/admin": ["../admin"],
-      "@eoms/cli": ["../cli"]
+      "@eo-ms/*": ["../../packages/*"],
+      "@eo-ms/admin": ["../admin"],
+      "@eo-ms/cli": ["../cli"]
     },
     "resolveJsonModule": true
   },

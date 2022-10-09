@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": ["@eoms/eslint-config"],
+  "extends": ["@eo-ms/eslint-config"],
   "settings": {
     "next": {
       "rootDir": "apps/docs"

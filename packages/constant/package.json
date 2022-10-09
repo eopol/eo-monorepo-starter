@@ -1,5 +1,5 @@
 {
-  "name": "@eoms/constant",
+  "name": "@eo-ms/constant",
   "version": "0.0.0",
   "private": true,
   "license": "ISC",
@@ -25,7 +25,7 @@
     "clean:deps": "rimraf node_modules"
   },
   "devDependencies": {
-    "@eoms/ts-config": "workspace:*",
+    "@eo-ms/ts-config": "workspace:*",
     "tsup": "^6.2.3"
   },
   "engines": {

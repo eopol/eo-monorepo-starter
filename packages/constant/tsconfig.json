@@ -1,5 +1,5 @@
 {
-  "extends": "@eoms/ts-config/node16.json",
+  "extends": "@eo-ms/ts-config/node16.json",
   "include": ["src", "index.ts"],
   "exclude": ["dist", "node_modules", ".turbo"]
 }
