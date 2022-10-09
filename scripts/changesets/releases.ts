@@ -57,7 +57,7 @@ const getReleasedPackages = async (csOutput, pkgs) => {
 async function main() {
   const env = process.env
   const octokit = new Octokit({
-    auth: `token ${env.GITHUB_TOKEN}`,
+    auth: `token ${env.SELF_TOKEN}`,
   })
 
   // Run changesets publish and get stdout
