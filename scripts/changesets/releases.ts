@@ -13,7 +13,7 @@ const createRelease = async (octokit, { pkg, tagName }) => {
 
   const changelog = await fs.promises.readFile(changelogPath, 'utf8')
   const changelogArr = changelog.split('\n')
-  let releaseNotes = []
+  let releaseNotes: string[] = []
   // Get release notes from changelog
   for (const line of changelogArr) {
     if (line.match(/^#{3}\s/)) {

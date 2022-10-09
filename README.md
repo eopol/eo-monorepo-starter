@@ -47,3 +47,7 @@ Use [cz-git](https://cz-git.qbb.sh/), [czg](https://cz-git.qbb.sh/cli/#VPContent
 ## CZ config
 
 Move pkg's config of commitizen to root `.czrc` avoid `run-s clean:**` error. See [pnpm issues #3275](https://github.com/pnpm/pnpm/issues/3275) and [npm-run-all issue #201](https://github.com/mysticatea/npm-run-all/issues/201)
+
+## Compile .ts script in Node
+
+Use `tsx` to compile .ts file so fast.
