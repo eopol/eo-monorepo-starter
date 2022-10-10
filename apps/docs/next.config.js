@@ -1,13 +1,19 @@
 /** @type {import('next').NextConfig} */
+
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+});
+
+const withTM = require("next-transpile-modules")([
+  "@eo-ms/ui",
+]);
+
 const nextConfig = {
-  distDir: 'dist',
+  // distDir: 'dist',
   reactStrictMode: true,
   swcMinify: true,
-  // Solve "Module parse failed: The keyword 'interface' is reserved" when "import type {IXXX} from 'xxx'"
-  // see https://github.com/vercel/next.js/issues/5666 and https://github.com/vercel/next.js/pull/22867
-  experimental: {
-    externalDir: true,
-  },
+  pageExtensions: ['ts', 'tsx', 'mdx']
 }
 
-module.exports = nextConfig
+// @ts-ignore
+module.exports = withTM(withMDX(nextConfig))
