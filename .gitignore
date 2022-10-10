@@ -27,7 +27,3 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-*.local
-server/dist
-public/dist
-storybook-static/
