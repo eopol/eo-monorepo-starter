@@ -63,7 +63,7 @@ async function main() {
   // Run changesets publish and get stdout
   const csOutput = childProcess
     .execSync(
-      'pnpm exec changeset publish'
+      'pnpm changeset publish'
     )
     .toString()
   console.log(csOutput)

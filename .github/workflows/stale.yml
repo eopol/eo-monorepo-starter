@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/stale@v5
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.SELF_TOKEN }}
           days-before-stale: 30
           days-before-close: -1
           operations-per-run: 300
