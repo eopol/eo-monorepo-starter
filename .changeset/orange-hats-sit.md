@@ -3,4 +3,4 @@
 '@eo-ms/ui': patch
 ---
 
-🚀 Setup Project
+🚀 setup project
