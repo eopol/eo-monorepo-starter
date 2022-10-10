@@ -45,8 +45,8 @@ jobs:
       - name: Fetch Github User Name
         run: git config --global user.name $(git log -n 1 --pretty=format:%an)
 
-      # - name: Generate changelogrc
-      #   run: pnpm changelog:gen
+      - name: Generate changelogrc
+        run: pnpm changelog:gen
 
       # - name: Changeset Publish packages and create releases
       #   id: changesets
@@ -60,8 +60,16 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
       #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Bump version
+        run: pnpm changeset version
+        env:
+          GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Publish packages and create releases
-        run: npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN && pnpm changeset:publish
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          pnpm changeset:publish
         env:
           GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
