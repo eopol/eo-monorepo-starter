@@ -1,5 +1,12 @@
 # @eo-ms/docs
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`cad378a`](https://github.com/eopol/eo-monorepo-starter/commit/cad378a6270dcb6ee452538d7f93480e7f84e107)]:
+  - @eo-ms/ui@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
