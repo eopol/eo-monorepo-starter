@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print current workflow info
-        run: echo "${{ github.triggering_actor || github.actor }} $(git log -n 1 --pretty=format:%ae) $(git log -n 1 --pretty=format:%ce) $(git log -n 1 --pretty=format:%an) $(git log -n 1 --pretty=format:%cn)"
+        run: echo "${{ github.triggering_actor || github.actor }}"
         env:
           GITHUB_BRANCH: ${{ github.ref}} 
 
@@ -38,10 +38,10 @@ jobs:
         run: pnpm build
 
       - name: Fetch Github User Email
-        run: git config --global user.email $(git log -n 1 --pretty=format:%ae)
+        run: git config --global user.email $(git log -n 1 --pretty=format:%ce)
 
       - name: Fetch Github User Name
-        run: git config --global user.name $(git log -n 1 --pretty=format:%an)
+        run: git config --global user.name $(git log -n 1 --pretty=format:%cn)
 
       - name: Generate changelogrc
         run: pnpm changelog:gen

@@ -29,10 +29,10 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       - name: Fetch Github User Email
-        run: git config --global user.email $(git log -n 1 --pretty=format:%ae)
+        run: git config --global user.email $(git log -n 1 --pretty=format:%ce)
 
       - name: Fetch Github User Name
-        run: git config --global user.name $(git log -n 1 --pretty=format:%an)
+        run: git config --global user.name $(git log -n 1 --pretty=format:%cn)
 
       - name: Generate changelog files
         run: pnpm changelog:write
