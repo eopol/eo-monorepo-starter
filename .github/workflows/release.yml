@@ -27,14 +27,14 @@ jobs:
       - name: Install Dependencies
         run: pnpm i --frozen-lockfile
 
-      - name: Prepare Release Build Packages
+      - name: Build Packages
         run: pnpm build
 
       - name: Fetch Github User Email
-        run: git config --global user.email ${GIT_AUTHOR_EMAIL}
+        run: git config --global user.email $(git log -n 1 --pretty=format:%ae)
 
       - name: Fetch Github User Name
-        run: git config --global user.name ${GIT_AUTHOR_NAME}
+        run: git config --global user.name $(git log -n 1 --pretty=format:%an)
 
       - name: Generate changelogrc
         run: pnpm changelog:gen
