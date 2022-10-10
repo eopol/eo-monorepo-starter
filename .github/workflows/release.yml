@@ -29,7 +29,6 @@ jobs:
 
   release:
     name: Release
-    runs-on: ubuntu-latest
     needs: [prerelease]
     steps:
       - name: Prepare Release Build Packages
@@ -62,7 +61,6 @@ jobs:
 
   postrelease:
     name: Post Release
-    runs-on: ubuntu-latest
     needs: [prerelease]
     steps:
       - name: Fetch Github User Email
