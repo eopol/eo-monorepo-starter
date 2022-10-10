@@ -20,7 +20,6 @@
     "clean:root-cache": "rimraf .turbo && rimraf pnpm-lock.yaml",
     "clean:root-deps": "rimraf node_modules",
     "lint": "turbo run lint",
-    "lint:staged": "lint-staged",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "commit": "czg",
     "changeset": "changeset",
@@ -59,7 +58,7 @@
     "typescript": "^4.8.3"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint:staged",
+    "pre-commit": "pnpm exec lint-staged",
     "commit-msg": "pnpm exec commitlint --edit $1"
   },
   "engines": {
