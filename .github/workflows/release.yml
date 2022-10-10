@@ -1,5 +1,13 @@
 name: Release
 
+env:
+  GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  GITHUB_BRANCH: ${{ github.ref_name }}
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
 on:
   push:
     branches:
@@ -45,18 +53,11 @@ jobs:
 
       - name: Bump version
         run: pnpm changeset version
-        env:
-          GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish packages and create releases
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
           pnpm changeset:publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_BRANCH: ${{ github.ref_name }}
 
       - name: Generate changelog files
         run: pnpm changelog:write
@@ -65,7 +66,16 @@ jobs:
         run: |
           git add . && pnpm format
           git diff --staged --quiet || git commit -am "docs: 📝 update changelog on repository" && git push origin $GITHUB_BRANCH
-        env:
-          GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_BRANCH: ${{ github.ref_name }}
+
+      # deploy docs to vercel
+      - name: Install Vercel CLI
+        run: npm install --global vercel@canary
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=$VERCEL_TOKEN
+
+      - name: Build Vercel Project Artifacts
+        run: vercel build --token=$VERCEL_TOKEN
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --token=$VERCEL_TOKEN

@@ -9,13 +9,6 @@
         "build:ui", "build:constant"
       ]
     },
-    "build:docs": {
-      "outputs": [
-        "dist/**",
-        ".next/**"
-      ],
-      "dependsOn": ["build:ui"]
-    },
     "build:ui": {
       "outputs": [
         "dist/**"

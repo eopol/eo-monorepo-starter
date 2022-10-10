@@ -38,6 +38,28 @@ Typescript config required by this monorepo project
 
 UI library
 
+## Usage
+
+### Install
+
+`pnpm i -f` install deps
+
+### Local devlopment
+
+`pnpm dev:docs` to open local server
+
+### CI
+
+Use github action to control workflow.
+
+- `pnpm release` to create changeset.
+
+- `git add .`
+
+- `pnpm commit`
+
+- `git push`
+
 ## Git hook
 
 Use `simple-git-hook`, `lint-staged`, `eslint`, `@commitlint/cli`, `@commitlint/config-conventional` to make file format and commit message lint.
@@ -51,3 +73,23 @@ Move pkg's config of commitizen to root `.czrc` avoid `run-s clean:**` error. Se
 ## Compile .ts script in Node
 
 Use `tsx` to compile .ts file so fast.
+
+## Use Github Action for CI
+
+### Create Github Token
+
+- Click user avator, Settings => Developer settings => Developer settings => click Generate new token
+
+- `${{ secrets.GITHUB_TOKEN }}`: Just named `note` to GITHUB_TOKEN
+
+- `${{ secrets.SELF_TOKEN }}`: Just named `note` to xxx, then enter your repo. Click Settings => Secrets => Actions => click New repository secret. Enter xxx to Secret and enter SELF_TOKEN to Name.
+
+### Create NPM Token
+
+- Click user avator, Access Tokens
+
+- Enter name and choose Automation then copy token to github repo, Click Settings => Secrets => Actions => click New repository secret. Enter YOUR_NPM_TOKEN to Secret and enter NPM_TOKEN to Name.
+
+### Create NPM group
+
+- Click user avator, Add Organization
