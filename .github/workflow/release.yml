@@ -1,0 +1,85 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  prerelease:
+    name: Prepare Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm i --frozen-lockfile
+
+  prerelease_build:
+    name: Prepare Release Build Packages
+    runs-on: ubuntu-latest
+    needs: [prerelease]
+    run: pnpm build
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    needs: [prerelease, prerelease_build]
+    steps:
+      - name: Fetch Github User Email
+        run: git config --global user.email ${GITHUB_EMAIL}
+
+      - name: Fetch Github User Name
+        run: git config --global user.name ${GITHUB_EMAIL}
+
+      - name: Generate changelogrc
+        run: pnpm changelog:gen
+      
+      - name: Generate packages changelogs
+        run: pnpm exec changeset version
+
+      - name: Publish packages and create releases
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          commit: 'chore: bump versions'
+          title: 'chore: bump versions'
+          publish: |
+            npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+            pnpm changeset:publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  postrelease:
+    name: Post Release
+    runs-on: ubuntu-latest
+    needs: [prerelease]
+    steps:
+      - name: Fetch Github User Email
+        run: git config --global user.email ${GITHUB_EMAIL}
+
+      - name: Fetch Github User Name
+        run: git config --global user.name ${GITHUB_EMAIL}
+
+      - name: Generate changelog files
+        run: pnpm changelog:write
+
+      - name: Commit changelog files
+        run: |
+          git add . && pnpm format
+          git diff --staged --quiet || git commit -am "docs: update changelog on repository and website" && git push origin ${GITHUB_REPOSITORY}
