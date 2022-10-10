@@ -50,6 +50,10 @@
       "cache": false
     },
 
+    "release": {
+      "cache": false
+    },
+
     "preversion": {
       "cache": false
     }

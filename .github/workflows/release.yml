@@ -45,8 +45,8 @@ jobs:
       - name: Fetch Github User Name
         run: git config --global user.name $(git log -n 1 --pretty=format:%an)
 
-      - name: Generate changelogrc
-        run: pnpm changelog:gen
+      #- name: Generate changelogrc
+      #  run: pnpm changelog:gen
 
       - name: Changeset Publish packages and create releases
         id: changesets
@@ -54,7 +54,7 @@ jobs:
         with:
           commit: 'chore: 🎉 publish packages && create releases'
           title: 'chore: 🎉 publish packages && create releases'
-          version: pnpm changeset version
+          #version: pnpm changeset version
           publish: npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN && pnpm changeset:publish
         env:
           GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}

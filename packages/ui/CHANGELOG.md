@@ -1,5 +1,11 @@
 # @eo-ms/ui
 
+## 0.0.5
+
+### Patch Changes
+
+- Refactor changeset publish script
+
 ## 0.0.4
 
 ### Patch Changes
