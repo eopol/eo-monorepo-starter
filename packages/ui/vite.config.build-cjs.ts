@@ -15,7 +15,7 @@ export default (): UserConfigExport => {
         insertTypesEntry: true,
         copyDtsFiles: true,
         entryRoot: componentDir,
-        include: [componentDir]
+        include: [componentDir],
       }),
     ],
     build: {

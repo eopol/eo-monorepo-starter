@@ -55,7 +55,7 @@ const getReleasedPackages = async (csOutput, pkgs) => {
 }
 
 async function main() {
-  console.log("releases")
+  console.log('releases')
   const env = process.env
   const octokit = new Octokit({
     auth: `token ${env.GITHUB_TOKEN}`,
@@ -63,11 +63,9 @@ async function main() {
 
   // Run changesets publish and get stdout
   const csOutput = childProcess
-    .execSync(
-      'pnpm exec changeset publish'
-    )
+    .execSync('pnpm exec changeset publish')
     .toString()
-    
+
   console.log(
     `
     🚀🚀🚀 Run changesets publish and get stdout. 🚀🚀🚀

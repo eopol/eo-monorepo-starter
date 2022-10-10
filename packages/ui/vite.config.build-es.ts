@@ -1,4 +1,3 @@
-
 import { resolve } from 'path'
 import React from '@vitejs/plugin-react'
 import Dts from 'vite-plugin-dts'
@@ -16,8 +15,8 @@ export default (): UserConfigExport => {
         insertTypesEntry: true,
         copyDtsFiles: true,
         entryRoot: componentDir,
-        include: [componentDir]
-      })
+        include: [componentDir],
+      }),
     ],
     build: {
       target: 'modules',
@@ -31,7 +30,7 @@ export default (): UserConfigExport => {
         formats: ['es'],
         fileName: (): string => {
           return 'index.mjs'
-        }
+        },
       },
       rollupOptions: {
         external: ['react', 'react-dom'],
@@ -39,8 +38,8 @@ export default (): UserConfigExport => {
           preserveModules: true,
           preserveModulesRoot: componentDir,
           sourcemap: true,
-        }
-      }
-    }
+        },
+      },
+    },
   }
 }

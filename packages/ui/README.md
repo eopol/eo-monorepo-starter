@@ -8,7 +8,7 @@ Use `React.FC` development ui library.
 
 ## build
 
-Use vite build bundle. 
+Use vite build bundle.
 
 - vite.config.build-cjs.ts => dist/lib => CJS bundles
 - vite.config.build-es.ts => dist/es => ESM bundles
