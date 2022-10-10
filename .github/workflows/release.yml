@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print current workflow info
-        run: echo "${{ github.head_ref || github.ref_name }} ${{ github.triggering_actor || github.actor }} $GIT_AUTHOR_NAME $GIT_AUTHOR_EMAIL"
+        run: echo "${{ github.triggering_actor || github.actor }} $(git log -n 1 --pretty=format:%ae) $(git log -n 1 --pretty=format:%ce) $(git log -n 1 --pretty=format:%an) $(git log -n 1 --pretty=format:%cn)"
         env:
-          GITHUB_BRANCH: ${{ github.head_ref || github.ref_name }} 
+          GITHUB_BRANCH: ${{ github.ref}} 
 
       - name: Checkout Repo
         uses: actions/checkout@v3
