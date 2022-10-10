@@ -12,9 +12,6 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Print current workflow info
-        run: echo "${{ github.triggering_actor || github.actor }} ${{ github.ref_name }}"
-
       - name: Checkout Repo
         uses: actions/checkout@v3
         with:
@@ -45,18 +42,6 @@ jobs:
 
       - name: Generate changelogrc
         run: pnpm changelog:gen
-
-      # - name: Changeset Publish packages and create releases
-      #   id: changesets
-      #   uses: changesets/action@v1
-      #   with:
-      #     commit: 'chore: 🎉 publish packages && create releases'
-      #     title: 'chore: 🎉 publish packages && create releases'
-      #     version: pnpm changeset version
-      #     publish: npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN && pnpm changeset:publish
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Bump version
         run: pnpm changeset version
