@@ -66,13 +66,23 @@ async function main() {
       'pnpm exec changeset publish'
     )
     .toString()
-  console.log(csOutput)
+  console.log(
+    `
+    🚀🚀🚀 Run changesets publish and get stdout. 🚀🚀🚀
+    ${csOutput}
+    `
+  )
 
   const gitPushCommand = `git add . && pnpm run format
   git diff --staged --quiet || git commit -m "docs(changelog): add changelogs for $(git rev-parse --short HEAD) [skip ci]" && git push origin ${env.GITHUB_BRANCH} --follow-tags`
 
   // Push updated packages to github with tags
-  console.log(childProcess.execSync(gitPushCommand))
+  console.log(
+    `
+    🚀🚀🚀 Push updated packages to github with tags. 🚀🚀🚀
+    ${childProcess.execSync(gitPushCommand)}
+    `
+  )
 
   const { packages: pkgs } = await getPackages(cwd)
   const releasedPkgs = await getReleasedPackages(csOutput, pkgs)
