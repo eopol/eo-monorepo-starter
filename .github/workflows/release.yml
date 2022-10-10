@@ -57,3 +57,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_BRANCH: ${{ github.ref_name }}
+
+      - name: Generate changelog files
+        run: pnpm changelog:write
+
+      - name: Commit changelog files
+        run: |
+          git add . && pnpm format
+          git diff --staged --quiet || git commit -am "docs: 📝 update changelog on repository" && git push origin $GITHUB_BRANCH
+        env:
+          GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_BRANCH: ${{ github.ref_name }}
