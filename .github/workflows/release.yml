@@ -40,16 +40,6 @@ jobs:
 
       - name: Generate changelogrc
         run: pnpm changelog:gen
-      
-      - name: Generate packages changelogs
-        id: changesets_version
-        uses: changesets/action@v1
-        with:
-          publish: |
-            pnpm changeset version
-        env:
-          GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish packages and create releases
         id: changesets
@@ -57,6 +47,7 @@ jobs:
         with:
           commit: 'chore: bump versions'
           title: 'chore: bump versions'
+          version: pnpm changeset version
           publish: |
             npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
             pnpm changeset:publish
