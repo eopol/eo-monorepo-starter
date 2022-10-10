@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print current workflow info
-        run: echo "${{ github.triggering_actor || github.actor }}"
+        run: echo "${{ github.triggering_actor || github.actor }} ${{ github.ref }}"
         env:
-          GITHUB_BRANCH: ${{ github.ref}} 
+          GITHUB_BRANCH: ${{ github.ref }}
 
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -38,10 +38,10 @@ jobs:
         run: pnpm build
 
       - name: Fetch Github User Email
-        run: git config --global user.email $(git log -n 1 --pretty=format:%ce)
+        run: git config --global user.email $(git log -n 1 --pretty=format:%ae)
 
       - name: Fetch Github User Name
-        run: git config --global user.name $(git log -n 1 --pretty=format:%cn)
+        run: git config --global user.name $(git log -n 1 --pretty=format:%an)
 
       - name: Generate changelogrc
         run: pnpm changelog:gen

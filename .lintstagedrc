@@ -1,3 +1,3 @@
 {
-  "**/*.{ts,tsx,md}": "eslint --fix"
+  "**/*.{ts,tsx}": "eslint --fix"
 }
