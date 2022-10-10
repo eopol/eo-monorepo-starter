@@ -18,6 +18,6 @@ jobs:
       - name: Remove stale label
         run: gh issue edit $ISSUE --remove-label $LABEL
         env:
-          SELF_TOKEN: ${{ secrets.SELF_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
           LABEL: 'stale'

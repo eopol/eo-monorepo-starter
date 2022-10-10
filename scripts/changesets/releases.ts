@@ -57,7 +57,7 @@ const getReleasedPackages = async (csOutput, pkgs) => {
 async function main() {
   const env = process.env
   const octokit = new Octokit({
-    auth: `token ${env.SELF_TOKEN}`,
+    auth: `token ${env.GITHUB_TOKEN}`,
   })
 
   // Run changesets publish and get stdout
@@ -69,7 +69,7 @@ async function main() {
   console.log(csOutput)
 
   const gitPushCommand = `git add . && pnpm format
-  git diff --staged --quiet || git commit -m "docs(changelog): add changelogs for $(git rev-parse --short HEAD) [skip ci]" && git push origin ${env.CIRCLE_BRANCH} --follow-tags`
+  git diff --staged --quiet || git commit -m "docs(changelog): add changelogs for $(git rev-parse --short HEAD) [skip ci]" && git push origin ${env.GITHUB_REPOSITORY} --follow-tags`
 
   // Push updated packages to github with tags
   console.log(childProcess.execSync(gitPushCommand))
