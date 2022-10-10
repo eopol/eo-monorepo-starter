@@ -48,18 +48,13 @@ jobs:
       - name: Generate changelogrc
         run: pnpm changelog:gen
 
-      - name: Changeset version
-        run: pnpm changeset version
-        env:
-          GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Changeset Publish packages and create releases
         id: changesets
         uses: changesets/action@v1
         with:
           commit: 'chore: 🎉 publish packages && create releases'
           title: 'chore: 🎉 publish packages && create releases'
+          version: pnpm changeset version
           publish: npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN && pnpm changeset:publish
         env:
           GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
