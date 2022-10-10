@@ -44,7 +44,9 @@ jobs:
       - name: Generate packages changelogs
         id: changesets_version
         uses: changesets/action@v1
-        run: pnpm changeset version
+        with:
+          publish: |
+            pnpm changeset version
         env:
           GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
