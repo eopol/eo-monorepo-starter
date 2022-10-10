@@ -1,5 +1,6 @@
 {
   "name": "eo-monorepo-starter",
+  "packageManager": "pnpm@7.13.2",
   "private": true,
   "scripts": {
     "preinstall": "node ./scripts/preinstall.mjs",
