@@ -23,7 +23,7 @@
     "lint:staged": "lint-staged",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "commit": "czg",
-    "changelog": "changeset",
+    "changeset": "changeset",
     "changelog:gen": "tsx ./scripts/changesets/generate.ts",
     "changelog:write": "tsx ./scripts/changesets/write.ts",
     "changeset:publish": "tsx ./scripts/changesets/releases.ts",
