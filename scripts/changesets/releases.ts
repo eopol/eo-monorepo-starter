@@ -67,6 +67,7 @@ async function main() {
       'pnpm exec changeset publish'
     )
     .toString()
+    
   console.log(
     `
     🚀🚀🚀 Run changesets publish and get stdout. 🚀🚀🚀
