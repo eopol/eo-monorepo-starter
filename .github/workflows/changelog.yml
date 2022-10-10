@@ -1,0 +1,41 @@
+name: Generate changelog files and Commit
+
+on:
+  schedule:
+    - cron:  '30 1 * * *'
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  changelog:
+    name: Changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Fetch Github User Email
+        run: git config --global user.email ${GITHUB_EMAIL}
+
+      - name: Fetch Github User Name
+        run: git config --global user.name ${GITHUB_EMAIL}
+
+      - name: Generate changelog files
+        run: pnpm changelog:write
+
+      - name: Commit changelog files
+        run: |
+          git add . && pnpm format
+          git diff --staged --quiet || git commit -am "docs: update changelog on repository and website" && git push origin ${GITHUB_REPOSITORY}
