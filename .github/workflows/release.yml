@@ -14,8 +14,6 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
@@ -29,17 +27,14 @@ jobs:
       - name: Install Dependencies
         run: pnpm i --frozen-lockfile
 
-  prerelease_build:
-    name: Prepare Release Build Packages
-    runs-on: ubuntu-latest
-    needs: [prerelease]
-    run: pnpm build
-
   release:
     name: Release
     runs-on: ubuntu-latest
-    needs: [prerelease, prerelease_build]
+    needs: [prerelease]
     steps:
+      - name: Prepare Release Build Packages
+        run: pnpm build
+
       - name: Fetch Github User Email
         run: git config --global user.email ${GITHUB_EMAIL}
 
