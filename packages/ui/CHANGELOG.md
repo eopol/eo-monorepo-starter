@@ -1,5 +1,11 @@
 # @eo-ms/ui
 
+## 0.0.3
+
+### Patch Changes
+
+- [`e9f76e3`](https://github.com/eopol/eo-monorepo-starter/commit/e9f76e38aef10d5f2b5a2b2e73f84120f70f9b17) Thanks [@i7eo](https://github.com/i7eo)! - 🔨 Setup changeset publish script
+
 ## 0.0.2
 
 ### Patch Changes
