@@ -1,5 +1,11 @@
 # @eo-ms/ui
 
+## 0.0.6
+
+### Patch Changes
+
+- Test
+
 ## 0.0.5
 
 ### Patch Changes

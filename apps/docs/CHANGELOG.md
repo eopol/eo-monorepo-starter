@@ -1,5 +1,12 @@
 # @eo-ms/docs
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @eo-ms/ui@0.0.6
+
 ## 0.0.5
 
 ### Patch Changes
