@@ -1,5 +1,11 @@
 # @eo-ms/ui
 
+## 0.0.5
+
+### Patch Changes
+
+- [#10](https://github.com/eopol/eo-monorepo-starter/pull/10) [`acc5a9b`](https://github.com/eopol/eo-monorepo-starter/commit/acc5a9bcd66bfb33344a7d7c99587b77dbe80d4b) Thanks [@i7eo](https://github.com/i7eo)! - Test Pr update release
+
 ## 0.0.4
 
 ### Patch Changes

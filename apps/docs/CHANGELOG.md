@@ -1,5 +1,12 @@
 # @eo-ms/docs
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [[`acc5a9b`](https://github.com/eopol/eo-monorepo-starter/commit/acc5a9bcd66bfb33344a7d7c99587b77dbe80d4b)]:
+  - @eo-ms/ui@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes
