@@ -11,6 +11,11 @@ jobs:
     name: Changelog
     runs-on: ubuntu-latest
     steps:
+      - name: Print current workflow info
+        run: echo "${{ github.triggering_actor || github.actor }} ${{ github.ref_name }}"
+        env:
+          GITHUB_BRANCH: ${{ github.ref_name }}
+
       - name: Checkout Repo
         uses: actions/checkout@v3
         with:
@@ -26,13 +31,13 @@ jobs:
           cache: pnpm
 
       - name: Install Dependencies
-        run: pnpm i --frozen-lockfile
+        run: pnpm install
 
       - name: Fetch Github User Email
-        run: git config --global user.email $(git log -n 1 --pretty=format:%ce)
+        run: git config --global user.email $(git log -n 1 --pretty=format:%ae)
 
       - name: Fetch Github User Name
-        run: git config --global user.name $(git log -n 1 --pretty=format:%cn)
+        run: git config --global user.name $(git log -n 1 --pretty=format:%an)
 
       - name: Generate changelog files
         run: pnpm changelog:write
@@ -40,4 +45,4 @@ jobs:
       - name: Commit changelog files
         run: |
           git add . && pnpm format
-          git diff --staged --quiet || git commit -am "docs: update changelog on repository and website" && git push origin ${GITHUB_REPOSITORY}
+          git diff --staged --quiet || git commit -am "docs: update changelog on repository and website" && git push origin $GITHUB_BRANCH

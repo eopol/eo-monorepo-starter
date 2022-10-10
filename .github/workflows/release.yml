@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print current workflow info
-        run: echo "${{ github.triggering_actor || github.actor }} ${{ github.ref }}"
+        run: echo "${{ github.triggering_actor || github.actor }} ${{ github.ref_name }}"
         env:
-          GITHUB_BRANCH: ${{ github.ref }}
+          GITHUB_BRANCH: ${{ github.ref_name }}
 
       - name: Checkout Repo
         uses: actions/checkout@v3

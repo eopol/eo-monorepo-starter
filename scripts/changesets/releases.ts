@@ -69,7 +69,7 @@ async function main() {
   console.log(csOutput)
 
   const gitPushCommand = `git add . && pnpm run format
-  git diff --staged --quiet || git commit -m "docs(changelog): add changelogs for $(git rev-parse --short HEAD) [skip ci]" && git push origin ${env.GITHUB_REPOSITORY} --follow-tags`
+  git diff --staged --quiet || git commit -m "docs(changelog): add changelogs for $(git rev-parse --short HEAD) [skip ci]" && git push origin ${env.GITHUB_BRANCH} --follow-tags`
 
   // Push updated packages to github with tags
   console.log(childProcess.execSync(gitPushCommand))
