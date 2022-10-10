@@ -62,8 +62,8 @@
     "**/*.{ts,tsx}": "eslint --fix"
   },
   "simple-git-hooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "commitlint --edit $1"
+    "pre-commit": "pnpm lint:staged",
+    "commit-msg": "pnpm exec commitlint --edit $1"
   },
   "engines": {
     "node": ">=16"
