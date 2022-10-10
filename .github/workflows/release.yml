@@ -50,8 +50,8 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: 'chore: bump versions'
-          title: 'chore: bump versions'
+          commit: 'chore: 🎉 bump versions'
+          title: 'chore: 🎉 bump versions'
           version: pnpm changeset version
           publish: |
             npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
@@ -59,11 +59,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      
-      - name: Generate changelog files
-        run: pnpm changelog:write
-
-      - name: Commit changelog files
-        run: |
-          git add . && pnpm format
-          git diff --staged --quiet || git commit -am "docs: update changelog on repository and website" && git push origin $GITHUB_BRANCH

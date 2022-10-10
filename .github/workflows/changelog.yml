@@ -45,4 +45,4 @@ jobs:
       - name: Commit changelog files
         run: |
           git add . && pnpm format
-          git diff --staged --quiet || git commit -am "docs: update changelog on repository and website" && git push origin $GITHUB_BRANCH
+          git diff --staged --quiet || git commit -am "docs: 📝 update changelog on repository and website" && git push origin $GITHUB_BRANCH
