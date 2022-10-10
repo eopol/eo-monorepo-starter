@@ -2,7 +2,7 @@ name: Generate changelog files and Commit
 
 on:
   schedule:
-    - cron:  '30 5,19 * * *'
+    - cron:  '35 5,11 * * *'
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
