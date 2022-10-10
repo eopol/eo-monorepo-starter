@@ -49,12 +49,7 @@ jobs:
         run: pnpm changelog:gen
 
       - name: Changeset version
-        id: changesets_version
-        uses: changesets/action@v1
-        with:
-          commit: 'chore: 🎉 bump versions'
-          title: 'chore: 🎉 bump versions'
-          version: pnpm changeset version
+        run: pnpm changeset version
         env:
           GITHUB_TOKEN: ${{ secrets.SELF_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
