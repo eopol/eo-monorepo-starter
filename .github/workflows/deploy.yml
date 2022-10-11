@@ -37,6 +37,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Print info
+        run: "ls -la"
+
       # - name: Setup pnpm
       #   uses: pnpm/action-setup@v2
       #   with:
