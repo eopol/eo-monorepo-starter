@@ -34,40 +34,36 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Print info
-        run: |
-          ls -la ./apps/docs
+      # - name: Setup pnpm
+      #   uses: pnpm/action-setup@v2
+      #   with:
+      #     version: 7
 
-  #     - name: Setup pnpm
-  #       uses: pnpm/action-setup@v2
-  #       with:
-  #         version: 7
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 16
+      #     cache: pnpm
 
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-  #         cache: pnpm
+      # - name: Install Dependencies
+      #   run: pnpm install
 
-  #     - name: Install Dependencies
-  #       run: pnpm install
+      # - name: Restore cache
+      #   run: pnpm clean:cache
 
-  #     - name: Restore cache
-  #       run: pnpm clean:cache
+      # - name: Build Packages
+      #   run: pnpm build
 
-  #     - name: Build Packages
-  #       run: pnpm build
-
-  #     - name: Setup Pages
-  #       uses: actions/configure-pages@v2
-  #       with:
-  #         # Automatically inject basePath in your Next.js configuration file and disable
-  #         # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-  #         #
-  #         # You may remove this line if you want to manage the configuration yourself.
-  #         static_site_generator: next
-  #         generator_config_file: ./apps/docs/next.config.js
-  #         token: $GITHUB_TOKEN
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+        with:
+          # Automatically inject basePath in your Next.js configuration file and disable
+          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
+          #
+          # You may remove this line if you want to manage the configuration yourself.
+          static_site_generator: next
+          generator_config_file: './apps/docs/next.config.js'
+          token: $GITHUB_TOKEN
   #     - name: Static HTML export with Next.js
   #       run: cd ./apps/docs && next export
   #     - name: Upload artifact
