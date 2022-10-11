@@ -9,7 +9,7 @@ const withTM = require("next-transpile-modules")([
 ]);
 
 const nextConfig = {
-  // distDir: 'dist',
+  distDir: 'dist',
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ['ts', 'tsx', 'mdx']

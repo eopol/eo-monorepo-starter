@@ -9,6 +9,7 @@
     "dev:admin": "pnpm -- turbo run dev --filter=admin",
     "dev:docs": "pnpm -- turbo run dev --filter=docs",
     "build": "turbo run build",
+    "build:doc": "pnpm -- turbo run build --filter=doc",
     "build:ui": "pnpm -- turbo run build --filter=ui",
     "build:constant": "pnpm -- turbo run build --filter=constant",
     "clean": "run-s clean:**",
