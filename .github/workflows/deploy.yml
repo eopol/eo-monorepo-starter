@@ -34,6 +34,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Enter Docs
+        run: 
+          working-directory: apps/docs
+
       # - name: Setup pnpm
       #   uses: pnpm/action-setup@v2
       #   with:
@@ -62,7 +66,7 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
-          generator_config_file: './apps/docs/next.config.js'
+          # generator_config_file: './apps/docs/next.config.js'
           token: $GITHUB_TOKEN
   #     - name: Static HTML export with Next.js
   #       run: cd ./apps/docs && next export
