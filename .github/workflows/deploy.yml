@@ -5,9 +5,6 @@ env:
 
 # Only trigger, when the Release workflow succeeded
 on:
-  push:
-    branches:
-      - main
   workflow_run:
     workflows: ['Release']
     types:
@@ -62,7 +59,7 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
-          generator_config_file: ./apps/docs/dist
+          generator_config_file: ./apps/docs/next.config.js
           token: $GITHUB_TOKEN
       - name: Static HTML export with Next.js
         run: cd ./apps/docs && next export
