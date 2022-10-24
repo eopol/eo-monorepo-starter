@@ -8,6 +8,16 @@ The Changelog gives an overview of the changes we've made to @eo-ms
 
 <!-- CHANGELOG:INSERT -->
 
+## 24-10-2022
+
+`@eo-ms/ui@0.0.5`
+
+- Bump version
+
+**Constant** `v0.0.1`
+
+- Bump version
+
 ## 10-10-2022
 
 `@eo-ms/ui@0.0.5`
