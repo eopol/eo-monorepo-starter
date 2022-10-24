@@ -34,6 +34,7 @@ export default (): UserConfigExport => {
       },
       rollupOptions: {
         external: ['react', 'react-dom'],
+        // external:[],
         output: {
           preserveModules: true,
           preserveModulesRoot: componentDir,
